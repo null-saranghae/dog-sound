@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>동물 듣기 능력 평가</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    @font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-image: url(paper.png);
+      color: #000000;
+      padding-top: 80px; /* 네비게이션 공간 확보 */
+    }
+
+
+    /* 네비게이션 바 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #121212;
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      color: #81e6d9;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      font-family: 'GowunDodum-Regular';
+      color: #000000;
+      margin-bottom: 40px;
+    }
+
+    h3 {
+      line-height: 190%;
+      font-family: 'GowunDodum-Regular';
+      font-size: 18px;
+    }
+
+    .input-section {
+      background:;
+      padding: 20px;
+      margin-bottom: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+    }
+
+    .input-section label {
+      
+      margin: 10px 0 5px;
+      font-weight: bold;
+      font-size: 19px;
+      width: auto;
+    }
+
+    .input-section input {
+    
+      padding: 10px;
+      margin: 10px;
+      width: 100px;
+      border: 2px;
+    
+      color: #000000;
+      font-size: 1rem;
+    }
+
+    .instructions {
+      
+      width: 500px;
+      border: #000000;
+      padding: 20px;
+      margin-bottom: 80px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #000000;
+    }
+
+    .section {
+      margin-bottom: 100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      border-left: 5px solid #000000;
+      padding-left: 10px;
+      color: #000000;
+    }
+
+    .animal-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
+    .animal-tile {
+  width: 150px;
+  height: 150px;
+  background-color: #312a20;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  padding: 10px;
+}
+.animal-tile img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.label {
+  color: #f5f5f5;
+  font-size: 20px;
+}
+    .animal-tile:hover {
+      transform: rotate(3deg) scale(1.05);
+      background-color: #4a4a4a;
+    }
+
+    .cut-line {
+      border-top: 1px dashed #555;
+      margin: 80px 0;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #777;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      text-align: center;
+      color: #777;
+      margin-top: 60px;
+    }
+    .flex {display: flex;}
+
+  </style>
+</head>
+<body>
+
+  <!-- 고정 네비게이션 -->
+  <div class="navbar">
+    <a href="#sec1">1교시</a>
+    <a href="#sec2">2교시</a>
+    <a href="#sec3">3교시</a>
+    <a href="#sec4">4교시</a>
+  </div>
+
+  <div class="container">
+    <br> <br> <br> <br> 
+    <h2>2026학년도 5월 동물연합학력평가 문제지</h2>
+  
+    <h1 style="font-family: 'KOTRA_BOLD-Bold';">동물 듣기 능력 평가</h1>
+    <br> <br> <br> <br> <br> <br> 
+    <!-- 입력 섹션 -->
+     <div class="instructions">
+    <div class="input-section">
+      <label for="name">이름</label>
+      <input type="text" id="name">
+      <label for="fav-animal">좋아하는 동물</label>
+      <input type="text" id="fav-animal">
+    </div>
+    </div>
+    <!-- 사용 방법 안내 -->
+    <div class="instructions">
+      <h3>
+      1. 원하는 동물을 선택합니다.<br>
+      2. 동물의 울음소리를 감상합니다.<br>
+      3. 동물의 모습과 울음소리를 떠올리면서, 들리는 대로 적습니다.<br>
+      4. 다음 동물로 넘어갑니다.
+    </h3>
+    </div>
+
+    <!-- 난이도 1 -->
+    <div class="section" id="sec1">
+      <div class="section-title">1교시</div>
+      <div class="animal-row">
+        <div class="animal-tile">
+          <img src="dog.jpg" alt="개">
+          <div class="label">개</div>
+        </div>
+        <div class="animal-tile">
+          <img src="cat.webp" alt="고양이">
+          <div class="label">고양이</div>
+        </div>
+        <div class="animal-tile">
+          <img src="duck.webp" alt="오리">
+          <div class="label">오리</div>
+        </div>
+        <div class="animal-tile">
+          <img src="chicken.png" alt="닭">
+          <div class="label">닭</div>
+        </div>
+        <div class="animal-tile">
+          <img src="cow.png" alt="소">
+          <div class="label">소</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 난이도 2 -->
+    <div class="section" id="sec2">
+      <div class="section-title">2교시</div>
+      <div class="animal-row">
+        <div class="animal-tile">
+          <img src="pig.jpg" alt="돼지">
+          <div class="label">돼지</div>
+        </div>
+        <div class="animal-tile">
+          <img src="horse.jpeg" alt="말">
+          <div class="label">말</div>
+        </div>
+        <div class="animal-tile">
+          <img src="sheep.webp" alt="양">
+          <div class="label">양</div>
+        </div>
+        <div class="animal-tile">
+          <img src="frog.jpg" alt="개구리">
+          <div class="label">개구리</div>
+        </div>
+        <div class="animal-tile">
+          <img src="pigeon.jpg" alt="비둘기">
+          <div class="label">비둘기</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 난이도 3 -->
+    <div class="section" id="sec3">
+      <div class="section-title">3교시</div>
+      <div class="animal-row">
+        <div class="animal-tile">
+          <img src="ham.png" alt="햄스터">
+          <div class="label">햄스터</div>
+        </div>
+        <div class="animal-tile">
+          <img src="crow.webp" alt="까마귀">
+          <div class="label">까마귀</div>
+        </div>
+        <div class="animal-tile">
+          <img src="elephant.jpg" alt="코끼리">
+          <div class="label">코끼리</div>
+        </div>
+        <div class="animal-tile">
+          <img src="wolf.jpeg" alt="늑대">
+          <div class="label">늑대</div>
+        </div>
+        <div class="animal-tile">
+          <img src="owl.jpeg" alt="부엉이">
+          <div class="label">부엉이</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 난이도 4 -->
+    <div class="section" id="sec4">
+      <div class="section-title">4교시</div>
+      <div class="animal-row">
+        <div class="animal-tile">
+          <img src="alli.png" alt="악어">
+          <div class="label">악어</div>
+        </div>
+        <div class="animal-tile">
+          <img src="fox.jpg" alt="여우">
+          <div class="label">여우</div>
+        </div>
+        <div class="animal-tile">
+          <img src="hi.jpg" alt="하이에나">
+          <div class="label">하이에나</div>
+        </div>
+        <div class="animal-tile">
+          <img src="penguin.avif" alt="펭귄">
+          <div class="label">펭귄</div>
+        </div>
+        <div class="animal-tile">
+          <img src="racoon.webp" alt="라쿤">
+          <div class="label">라쿤</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cut-line">────── 절취선 ──────</div>
+
+    <footer>
+      © 2025 동물듣기능력평가 <br>ßleejs2421@naver.com / 010-2765-2421
+    </footer>
+  </div>
+
+</body>
+</html>
