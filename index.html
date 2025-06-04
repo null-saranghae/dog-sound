@@ -26,7 +26,6 @@
       padding-top: 80px; /* 네비게이션 공간 확보 */
     }
 
-
     /* 네비게이션 바 */
     .navbar {
       position: fixed;
@@ -188,6 +187,43 @@
       margin-top: 60px;
     }
     .flex {display: flex;}
+    .modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  color: #fff;
+  box-shadow: 0 0 20px #81e6d9;
+}
+
+.modal img {
+  width: 150px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.modal input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #3a3a3a;
+  color: #fff;
+}
 
   </style>
 </head>
@@ -340,6 +376,84 @@
       © 2025 동물듣기능력평가 <br>ßleejs2421@naver.com / 010-2765-2421
     </footer>
   </div>
+<!-- 모달 오버레이 -->
+<div id="modalOverlay" class="modal-overlay">
+  <div class="modal">
+    <h3 id="modalTitle">동물 이름</h3>
+    <img id="modalImage" src="" alt="동물 이미지" />
+    <audio id="modalAudio" controls></audio>
+    <input type="text" id="userAnswer" placeholder="들리는 대로 적어보세요" />
+    <button onclick="checkAnswer()">제출하기</button>
+    <div id="resultMessage"></div>
+    <button onclick="closeModal()" style="margin-top:10px;">닫기</button>
+  </div>
+</div>
+<script>
+  const animals = {
+    "개": { img: "dog.jpg", sound: "sounds/dog.mp3", answer: "버로로롱" },
+    "고양이": { img: "cat.webp", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "오리": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "닭": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "소": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "돼지": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "말": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "양": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "개구리": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "비둘기": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "햄스터": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "까마귀": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "코끼리": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "늑대": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "부엉이": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "악어": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "여우": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "하이에나": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "펭귄": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
+    "라쿤": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" }
 
+    // ... 나머지 동물도 여기에 추가
+  };
+  
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage');
+  const modalAudio = document.getElementById('modalAudio');
+  const resultMessage = document.getElementById('resultMessage');
+  
+  let currentAnimal = null;
+  
+  document.querySelectorAll('.animal-tile').forEach(tile => {
+    tile.addEventListener('click', () => {
+      const name = tile.querySelector('.label')?.textContent || tile.textContent.trim();
+      const data = animals[name];
+      if (!data) return;
+  
+      currentAnimal = data;
+      modalTitle.textContent = name;
+      modalImage.src = data.img;
+      modalAudio.src = data.sound;
+      document.getElementById('userAnswer').value = "";
+      resultMessage.textContent = "";
+      modalOverlay.style.display = "flex";
+    });
+  });
+  
+  function closeModal() {
+    modalOverlay.style.display = "none";
+  }
+  
+  function checkAnswer() {
+    const input = document.getElementById('userAnswer').value.trim();
+    const correct = currentAnimal.answer;
+    if (input === correct) {
+      resultMessage.textContent = "정답입니다! 🐾";
+      resultMessage.style.color = "#81e6d9";
+    } else {
+      resultMessage.textContent = `오답! 정답은 "${correct}"`;
+      resultMessage.style.color = "#ff6bcb";
+    }
+  }
+  </script>
+  
 </body>
 </html>
