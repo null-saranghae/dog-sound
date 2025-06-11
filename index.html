@@ -210,7 +210,7 @@
 }
 
 .modal img {
-  width: 150px;
+  width: 300px;
   border-radius: 10px;
   margin: 15px 0;
 }
@@ -329,11 +329,11 @@
           <div class="label">까마귀</div>
         </div>
         <div class="animal-tile">
-          <img src="elephant.jpg" alt="코끼리">
+          <img src="elephant.png" alt="코끼리">
           <div class="label">코끼리</div>
         </div>
         <div class="animal-tile">
-          <img src="wolf.jpeg" alt="늑대">
+          <img src="wolf.png" alt="늑대">
           <div class="label">늑대</div>
         </div>
         <div class="animal-tile">
@@ -370,10 +370,10 @@
       </div>
     </div>
 
-    <div class="cut-line">────── 절취선 ──────</div>
+    <div class="cut-line"></div>
 
     <footer>
-      © 2025 동물듣기능력평가 <br>ßleejs2421@naver.com / 010-2765-2421
+      © 2025 동물듣기능력평가 <br>leejs2421@naver.com / 010-2765-2421
     </footer>
   </div>
 <!-- 모달 오버레이 -->
@@ -390,28 +390,26 @@
 </div>
 <script>
   const animals = {
-    "개": { img: "dog.jpg", sound: "sounds/dog.mp3", answer: "버로로롱" },
-    "고양이": { img: "cat.webp", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "오리": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "닭": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "소": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "돼지": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "말": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "양": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "개구리": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "비둘기": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "햄스터": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "까마귀": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "코끼리": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "늑대": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "부엉이": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "악어": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "여우": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "하이에나": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "펭귄": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" },
-    "라쿤": { img: "images/cat.jpg", sound: "sounds/cat.mp3", answer: "냐오오옹" }
-
-    // ... 나머지 동물도 여기에 추가
+    "개": { img: "dogsound.jpeg", sound: "dog.wav", answer: "웝웝워워" },
+    "고양이": { img: "catsound.jpeg", sound: "cat.wav", answer: "웨아웅" },
+    "오리": { img: "ducksound.jpeg", sound: "duck.wav", answer: "으아아악까악깍" },
+    "닭": { img: "chickensound.jpeg", sound: "chicken.wav", answer: "께께엑꽉빡" },
+    "소": { img: "cowsound.jpeg", sound: "cow.wav", answer: "무에에에엑" },
+    "돼지": { img: "pigsound.jpeg", sound: "pig.mp3", answer: "끍" },
+    "말": { img: "horsesound.jpeg", sound: "horse.wav", answer: "킁후이이히히히힝" },
+    "양": { img: "sheepsound.jpeg", sound: "sheep.wav", answer: "움붸에에에엑" },
+    "개구리": { img: "frogsound.jpeg", sound: "frog.wav", answer: "꿰겍" },
+    "비둘기": { img: "pigeonsound.jpeg", sound: "pigeon.wav", answer: "혹호" },
+    "햄스터": { img: "hamsound.jpeg", sound: "hamster.wav", answer: "ㅉㅉㅉ" },
+    "까마귀": { img: "crowsound.jpeg", sound: "crow.wav", answer: "아아악아아악" },
+    "코끼리": { img: "elesound.jpeg", sound: "elephant.wav", answer: "빼아아아악" },
+    "늑대": { img: "wolfsound.jpeg", sound: "wolf.wav", answer: "오호오오" },
+    "부엉이": { img: "owlsound.jpeg", sound: "owl.wav", answer: "옷오호호" },
+    "악어": { img: "alisound.jpeg", sound: "aligator.mp4", answer: "득두드더더더더" },
+    "여우": { img: "foxsound.jpeg", sound: "fox.wav", answer: "오이오" },
+    "하이에나": { img: "hysound.jpeg", sound: "hyena.wav", answer: "오호호호우에우" },
+    "펭귄": { img: "pengsound.jpeg", sound: "penguin.wav", answer: "빼애애애으애애액" },
+    "라쿤": { img: "racoonsound.jpeg", sound: "racoon.wav", answer: "빼래래래래랩" }
   };
   
   const modalOverlay = document.getElementById('modalOverlay');
